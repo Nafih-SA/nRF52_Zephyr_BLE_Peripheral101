@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\.."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"uuid.h": "c",
+			"gatt.h": "c",
+			"bas.h": "c"
+		}
+	}
+}
