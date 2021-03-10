@@ -209,7 +209,7 @@ BT_GATT_SERVICE_DEFINE(vnd_svc,							//Macro that define and register a service
 			       BT_GATT_PERM_WRITE_ENCRYPT,
 			       read_vnd, write_vnd, vnd_value),		//read,write Callbacks, Attribute value)
 	BT_GATT_CCC(vnd_ccc_cfg_changed,					//Client Characteristic Configuration Declaration Macro
-		    BT_GATT_PERM_READ | BT_GATT_PERM_WRITE_ENCRYPT), //CCC Acces permissons
+		    BT_GATT_PERM_READ | BT_GATT_PERM_WRITE_ENCRYPT), //CCC Access permissons
 	BT_GATT_CHARACTERISTIC(&vnd_auth_uuid.uuid,
 			       BT_GATT_CHRC_READ | BT_GATT_CHRC_WRITE,
 			       BT_GATT_PERM_READ_AUTHEN |
@@ -220,7 +220,7 @@ BT_GATT_SERVICE_DEFINE(vnd_svc,							//Macro that define and register a service
 			       BT_GATT_PERM_READ | BT_GATT_PERM_WRITE |
 			       BT_GATT_PERM_PREPARE_WRITE,
 			       read_long_vnd, write_long_vnd, &vnd_long_value),
-	BT_GATT_CEP(&vnd_long_cep),
+	BT_GATT_CEP(&vnd_long_cep),							//Characteristic Extended Properties Declaration Macro
 	BT_GATT_CHARACTERISTIC(&vnd_signed_uuid.uuid, BT_GATT_CHRC_READ |
 			       BT_GATT_CHRC_WRITE | BT_GATT_CHRC_AUTH,
 			       BT_GATT_PERM_READ | BT_GATT_PERM_WRITE,
@@ -232,6 +232,7 @@ BT_GATT_SERVICE_DEFINE(vnd_svc,							//Macro that define and register a service
 );
 
 /************* Advertisement Data *************/
+//u8_t ----> unsigned char
 static volatile unsigned char mfg_data[] = { 0x00, 0x00, 0xaa, 0xbb };
 static const struct bt_data ad[] = {
 	BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
